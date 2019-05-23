@@ -1,0 +1,52 @@
+<!-- 标签页标题 -->
+
+<view class="tab">
+  <view class='tab-item  {{tab == 0?"active":" "}}'  bindtap='changeItem' data-item='0'>音乐推荐</view>
+  <view class='tab-item  {{tab == 1?"active":" "}}' bindtap='changeItem' data-item='1'>播放器</view>
+  <view class='tab-item  {{tab == 2?"active":" "}}' bindtap='changeItem' data-item='2'>播放列表</view>
+</view>
+<!-- 内容区域 -->
+<view class='content' >
+
+  <swiper current='{{item}}' bindchange='changeTab'>
+
+    <swiper-item>
+     <include src="info.wxml"/>
+   </swiper-item>
+  
+    <swiper-item>
+     <include src="play.wxml"/>
+   </swiper-item>
+ 
+    <swiper-item>
+     <include src="list.wxml"/>
+   </swiper-item>
+
+
+  </swiper> 
+
+</view>
+
+<view class='player'>
+  <image class='player-cover' src='{{play.cover}}'></image>
+  <view class='player-info'>
+    <view class='player-info-title'>{{play.title}}</view>
+    <view class='player-info-singer'>{{play.singer}}</view>
+  </view>
+
+
+  <view class='player-controls'>
+    <!-- 切换到播放列表 -->
+    <image src='cloud://guokangbiao-surround-ce2he.6775-guokangbiao-surround-ce2he/图标/465166424506892335.jpg' bindtap='changeItem' data-item='2'></image>
+    <!-- 播放 -->
+    <image wx:if="{{state == 'paused'}}"  src='cloud://guokangbiao-surround-ce2he.6775-guokangbiao-surround-ce2he/图标/14221147.png'  bindtap='play'></image> 
+    <image wx:if="{{state == 'running'}}" src='cloud://guokangbiao-surround-ce2he.6775-guokangbiao-surround-ce2he/图标/t01720dff39f8e7ae17.jpg' bindtap='pause'></image>
+
+
+
+    <!-- 下一首 -->
+    <image src='cloud://guokangbiao-surround-ce2he.6775-guokangbiao-surround-ce2he/图标/t016db87c5811f5c554.jpg' bindtap='next'></image>
+  </view>
+ </view>
+
+

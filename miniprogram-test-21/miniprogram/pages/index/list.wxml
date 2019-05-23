@@ -1,0 +1,15 @@
+<scroll-view class='mcontent-list' scroll -y bindtap='getdata'>
+  <view  class='mlist-item' wx:for='{{playlist}}' wx:key='id' bindtap='change' data-index="{{index}}">
+    <image class='mlist-cover' src='{{item.cover}}'></image>
+    <view class='mlist-info'>
+      <view class='mlist-info-title'>{{item.title}}</view>
+      <view class='mlist-info-singer'>{{item.singer}}</view>
+    </view>
+
+    <view class='mlist-controls'>
+      <text wx:if="{{index==playIndex}}">播放中</text>
+    </view>
+  
+</view>
+
+</scroll-view>
